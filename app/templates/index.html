@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Classification</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">Resume Classification</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST" class="mt-4">
+                    <div class="form-group">
+                        <label for="resume">Enter your resume:</label>
+                        <textarea class="form-control" id="resume" name="resume" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Classify</button>
+                </form>
+                {% if prediction %}
+                    <div class="mt-4 alert alert-success" role="alert">
+                        Predicted Category: {{ prediction }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 
+    <!-- Bootstrap JS and other dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
